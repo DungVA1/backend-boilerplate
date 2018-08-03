@@ -1,0 +1,5 @@
+# Ignore detect, commit change folder
+node_modules
+dist
+build
+log
