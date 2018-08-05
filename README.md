@@ -28,7 +28,14 @@
     - Structure data
       ```javascript
       {
-        userName: "string"
+        userName: "string",
+        phone: "string",
+        role: "string",
+        bod: "string",
+        city: "string",
+        district: "string",
+        school: "string",
+        facebook: "string", //Not required
       }
       ```
 
