@@ -13,7 +13,7 @@
 
 ## Install
 
-  *NodeJS v8 or later. Download [here](https://nodejs.org/en/)
-  *Npm v5.6.0
-  *Cd to the project:
+  * NodeJS v8 or later. Download [here](https://nodejs.org/en/)
+  * Npm v5.6.0
+  * Cd to the project:
   ```npm install```
