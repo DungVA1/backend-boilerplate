@@ -8,12 +8,27 @@
 
 ## Author
 
-  * Name: **Vu Anh Dung**
-  * Mail: dungva1505@gmail.com
+  - Name: **Vu Anh Dung**
+  - Mail: dungva1505@gmail.com
 
 ## Install
 
-  * NodeJS v8 or later. Download [here](https://nodejs.org/en/)
-  * Npm v5.6.0
-  * Cd to the project:
+  - NodeJS v8 or later. Download [here](https://nodejs.org/en/)
+  - Npm v5.6.0
+  - Cd to the project:
   ```npm install```
+
+## Task TODO
+
+  The working have to do
+
+### User
+
+  - Register feature
+    - Structure data
+      ```javascript
+      {
+        userName: "string"
+      }
+      ```
+
