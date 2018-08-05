@@ -8,8 +8,8 @@
 
 ## Author
 
-  Name: Vu Anh Dung
-  Mail: dungva1505@gmail.com
+  * Name: ** Vu Anh Dung **
+  * Mail: dungva1505@gmail.com
 
 ## Install
 
