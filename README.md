@@ -28,14 +28,20 @@
     - Structure data
       ```javascript
       {
-        userName: "string",
+        userName: "string", [Unique]
         phone: "string",
-        role: "string",
+        role: "string", in [Enum]
         bod: "string",
         city: "string",
         district: "string",
+        level: "string",
         school: "string",
         facebook: "string", //Not required
       }
       ```
+  - Login
+    - Auth by JWT
 
+### Class
+
+  -
