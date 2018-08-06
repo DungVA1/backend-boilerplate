@@ -53,7 +53,7 @@ class Database {
 
   deleteItem(id) {
     const index = dataFake[this.type].findIndex((o) => o.id === id);
-    dataFake.splice(index);
+    dataFake[this.type].splice(index, 1);
 
     return {
       [this.type]: dataFake[this.type],
