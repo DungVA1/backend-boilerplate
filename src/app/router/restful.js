@@ -4,21 +4,36 @@ import uuid from 'uuid';
 import path from 'path';
 import multer from 'multer';
 import fs from 'fs';
+import User from '../../model/User';
 
-const mockDataUser = [{ id: uuid(), userName: 'dung' }];
+const user = new User();
 
 const routerDefine =  function defineRouter() {
   const route = express.Router();
 
   route.get('/users', (req, res) => {
     res.status(200).json({
-      data: mockDataUser,
+      data: user.getUsers(),
+    });
+  });
+
+  route.put('/users/:userId', (req, res) => {
+    const { userName } = req.body;
+    const { userId } = req.params;
+    user.editUser({
+      userName,
+      userId,
+    }, userId);
+
+    res.status(200).json({
+      data: 'Updated',
     });
   });
 
   route.post('/users', (req, res) => {
     const { userName } = req.body;
-    mockDataUser.push({
+
+    user.addUser({
       id: uuid(),
       userName,
     });
@@ -26,6 +41,19 @@ const routerDefine =  function defineRouter() {
     res.status(201).json({
       data: 'Created',
     });
+  });
+
+  route.get('/users/:userId', (req, res) => {
+    const { userId } = req.params;
+    res.status(200).json({
+      data: user.getUser(userId),
+    });
+  });
+
+  route.delete('/users/:userId', (req, res) => {
+    const { userId } = req.params;
+    user.deleteUser(userId);
+    res.status(200).json({ data: 'Deleted' });
   });
 
   route.post('/login', (req, res) => {
