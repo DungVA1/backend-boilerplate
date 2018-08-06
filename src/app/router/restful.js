@@ -1,8 +1,11 @@
 import express from 'express';
 import { tokenGenerator, tokenBreaker } from '../middleware/jwt';
 import uuid from 'uuid';
+import path from 'path';
+import multer from 'multer';
+import fs from 'fs';
 
-const mockDataUser = [{ id: uuid(), userName: 'dung'} ];
+const mockDataUser = [{ id: uuid(), userName: 'dung' }];
 
 const routerDefine =  function defineRouter() {
   const route = express.Router();
@@ -40,6 +43,21 @@ const routerDefine =  function defineRouter() {
 
     res.status(200).json({
       logout: true,
+    });
+  });
+
+  route.get('/upload', (req, res) => {
+    res.header('Content-Type', 'text/html');
+    res.sendFile(path.resolve(`${__dirname}/../public/index.html`));
+  });
+
+  const uploader = multer({ dest: '../public/files' });
+
+  route.post('/upload', uploader.single('fileToUpload'), (req, res) => {
+    const file = path.resolve(__dirname, `../public/files/${req.file.filename}`);
+    fs.rename(req.file.path, `${file}.${req.file.originalname.split('.').pop()}`, (err) => {
+      if (err) res.send(500);
+      else res.send('OK');
     });
   });
 
